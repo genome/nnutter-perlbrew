@@ -1,41 +1,18 @@
 # == Class: perlbrew
 #
-# Full description of class perlbrew here.
-#
-# === Parameters
-#
-# Document parameters here.
-#
-# [*sample_parameter*]
-#   Explanation of what this parameter affects and what it defaults to.
-#   e.g. "Specify one or more upstream ntp servers as an array."
-#
-# === Variables
-#
-# Here you should define a list of variables that this module would require.
-#
-# [*sample_variable*]
-#   Explanation of how this variable affects the funtion of this class and if
-#   it has a default. e.g. "The parameter enc_ntp_servers must be set by the
-#   External Node Classifier as a comma separated list of hostnames." (Note,
-#   global variables should be avoided in favor of class parameters as
-#   of Puppet 2.6.)
-#
-# === Examples
-#
-#  class { 'perlbrew':
-#    servers => [ 'pool.ntp.org', 'ntp.local.company.com' ],
-#  }
-#
-# === Authors
-#
-# Author Name <author@domain.com>
-#
-# === Copyright
-#
-# Copyright 2014 Your name here, unless otherwise noted.
-#
-class perlbrew {
+# This class installs and configures perlbrew.
+# It does not install any versions of Perl by default.
 
-
+class perlbrew (
+  $perlbrew_root      = $perlbrew::params::perlbrew_root,
+  $perlbrew_init_file = $perlbrew::params::perlbrew_init_file,
+  $cpanm              = $perlbrew::params::cpanm,
+  $bin                = $perlbrew::params::bin,
+) inherits perlbrew::params {
+  class { 'perlbrew::install': }
+  class { 'perlbrew::config':
+    require => Class['perlbrew::install'],
+  }
+  contain 'perlbrew::install'
+  contain 'perlbrew::config'
 }
