@@ -13,6 +13,7 @@ class perlbrew (
   class { 'perlbrew::config':
     require => Class['perlbrew::install'],
   }
-  contain 'perlbrew::install'
-  contain 'perlbrew::config'
+  anchor { 'perlbrew::end':
+    require => Class['perlbrew::install', 'perlbrew::config'],
+  }
 }
