@@ -1,6 +1,6 @@
 {
   "name": "nnutter-perlbrew",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "author": "nnutter",
   "summary": "resources/classes for installing and using Perlbrew",
   "license": "Apache 2.0",
