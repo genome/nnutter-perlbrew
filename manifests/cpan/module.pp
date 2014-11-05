@@ -38,5 +38,6 @@ define perlbrew::cpan::module (
     perl_version => $perl_version,
     command      => "cpanm ${module_expr}",
     unless       => $unless,
+    timeout      => 600,
   }
 }
