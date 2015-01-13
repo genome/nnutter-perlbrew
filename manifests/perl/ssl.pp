@@ -8,7 +8,7 @@ define perlbrew::perl::ssl (
 ) {
   include perlbrew
 
-  perlbrew::perl { $title :
+  perlbrew::perl { $version :
     version         => $version,
     compile_options => $compile_options,
   }

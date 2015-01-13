@@ -5,7 +5,8 @@
 # === Parameters
 #
 # [*version*]
-#   The Perlbrew interpreter version to install.
+#   The Perlbrew interpreter version to install.  Due to poor implementation
+#   the title of the resource should also be its version.
 #
 # [*compile_options*]
 #   Option flags to use when compiling the interpreter.
