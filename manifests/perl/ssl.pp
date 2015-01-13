@@ -8,6 +8,11 @@ define perlbrew::perl::ssl (
 ) {
   include perlbrew
 
+  $ssl_dev = 'libssl-dev'
+  package { $ssl_dev :
+    ensure => installed,
+  }
+
   perlbrew::perl { $version :
     version         => $version,
     compile_options => $compile_options,
@@ -21,6 +26,9 @@ define perlbrew::perl::ssl (
   perlbrew::cpan::module { "Crypt::SSLeay-${version}":
     module  => 'Crypt::SSLeay',
     perl_version => $version,
-    require      => Perlbrew::Cpan::Module["Bundle::LWP-${version}"],
+    require      => [
+      Package[$ssl_dev],
+      Perlbrew::Cpan::Module["Bundle::LWP-${version}"],
+    ],
   }
 }
