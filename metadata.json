@@ -4,9 +4,9 @@
   "author": "nnutter",
   "summary": "resources/classes for installing and using Perlbrew",
   "license": "Apache 2.0",
-  "source": "https://github.com/nnutter/nnutter-perlbrew",
-  "project_page": "https://github.com/nnutter/nnutter-perlbrew",
-  "issues_url": "https://github.com/nnutter/nnutter-perlbrew/issues",
+  "source": "https://github.com/genome/nnutter-perlbrew",
+  "project_page": "https://github.com/genome/nnutter-perlbrew",
+  "issues_url": "https://github.com/genome/nnutter-perlbrew/issues",
   "dependencies": [
     {"name":"puppetlabs-stdlib","version_requirement":">= 1.0.0"}
   ]
